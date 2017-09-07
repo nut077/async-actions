@@ -1,6 +1,9 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import {persistState} from 'redux-devtools'
-import {logger} from 'redux-logger'
+import thunk from 'redux-thunk'
+import logger from 'redux-logger'
+import {apiMiddleware} from 'redux-api-middleware'
+import {setToken} from 'Middlewares'
 import rootReducer from 'Reducers'
 import {DevTools} from 'Containers'
 
