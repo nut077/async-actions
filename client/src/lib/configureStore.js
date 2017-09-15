@@ -1,18 +1,18 @@
-import {createStore, applyMiddleware, compose} from 'redux'
-import {persistState} from 'redux-devtools'
+import { createStore, applyMiddleware, compose } from 'redux'
+import { persistState } from 'redux-devtools'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
-import {apiMiddleware} from 'redux-api-middleware'
-import {setToken} from 'Middlewares'
-import rootReducer from 'Reducers'
-import {DevTools} from 'Containers'
+import { apiMiddleware } from 'redux-api-middleware'
+import { setToken } from '../middlewares'
+import rootReducer from '../reducers'
+import DevTools from 'Containers/DevTools'
 
 function getDebugSessionKey() {
   const matches = window.location.href.match(/[?&]debug_session=([^&#]+)\b/);
-  return (matches && matches.length > 0) ? matches[1] : null
+  return (matches && matches.length > 0)? matches[1] : null
 }
 
-export default function (initialState) {
+export default function(initialState) {
   const middlewares = [
     setToken,
     apiMiddleware,
@@ -31,8 +31,10 @@ export default function (initialState) {
   );
 
   if (module.hot) {
-    module.hot.accept('Reducers', () => store.replaceReducer(rootReducer))
+    module.hot.accept('../reducers', () =>
+      store.replaceReducer(rootReducer)
+    )
   }
 
-  return store;
+  return store
 }
