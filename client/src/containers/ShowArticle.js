@@ -44,7 +44,7 @@ export default compose(
         dispatch(loadArticle(params.id))
       },
       deleteArticle() {
-        dispatch(deleteArticle(params.id));
+        dispatch(deleteArticle(params.id))
         history.push('/articles')
       }
     })
