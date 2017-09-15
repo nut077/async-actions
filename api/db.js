@@ -21,14 +21,14 @@ export default {
       name: 'BabelCoder',
       email: 'babelcoder@gmail.com',
       isAdmin: true,
-      password: '$2a$12$.rjS5eXZpVo3aC2TuRsV0.8qzBOVPM01zguiMTKwb1BYxIVR7PtQS'
+      password: '74b87337454200d4d33f80c4663dc5e5'
     },
     {
       id: 2,
       name: 'Somchai',
       email: 'somchai@haha.com',
       isAdmin: false,
-      password: '$2a$12$.rjS5eXZpVo3aC2TuRsV0.8qzBOVPM01zguiMTKwb1BYxIVR7PtQS'
+      password: '74b87337454200d4d33f80c4663dc5e5'
     }
   ],
   comments: [
