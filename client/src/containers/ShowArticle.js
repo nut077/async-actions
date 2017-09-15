@@ -3,8 +3,9 @@ import { connect } from 'react-redux'
 import { compose } from 'recompose'
 import { withRouter } from 'react-router'
 import { loadArticle, deleteArticle } from 'Actions'
-import { Button, Comments, Loading } from 'Components'
+import { Button, Loading } from 'Components'
 import styles from './ShowArticle.scss'
+import Comments from "../components/Comments";
 
 class ShowArticle extends PureComponent {
   componentDidMount() {
@@ -44,7 +45,7 @@ export default compose(
         dispatch(loadArticle(params.id))
       },
       deleteArticle() {
-        dispatch(deleteArticle(params.id))
+        dispatch(deleteArticle(params.id));
         history.push('/articles')
       }
     })
