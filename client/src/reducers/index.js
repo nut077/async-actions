@@ -1,5 +1,8 @@
-import React from 'react'
+import {combineReducers} from 'redux'
+import articles from './articles'
+import auth from './auth'
 
-export default () => {
-  return <div>test</div>
-}
+export default combineReducers({
+  articles,
+  auth
+})

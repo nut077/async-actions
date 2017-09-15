@@ -5,14 +5,14 @@ import ArticlesPolicy from './policy'
 
 const ArticlesController = {
   getAll(_, res) {
-    res.json({articles: Articles.findAll()})
+    res.json({ articles: Articles.findAll() })
   },
 
   get(req, res) {
     const id = req.params.id;
     const comments = Comments.findAll().filter(
-      comment => comment.articleId === Number(req.params.id)
-    ).map(comment => ({...comment, user: Users.find(comment.userId)}))
+      comment => comment.articleId === +req.params.id
+    ).map(comment => ({ ...comment, user: Users.find(comment.userId) }));
 
     res.json({
       article: {
@@ -23,9 +23,10 @@ const ArticlesController = {
   },
 
   create(req, res) {
-    if (ArticlesPolicy.for('create', req.user)) {
+    if(ArticlesPolicy.for('create', req.user)) {
       const article = Articles.create(req.body);
-      res.status(201).json({article})
+
+      res.status(201).json({ article })
     } else {
       res
         .status(401)
@@ -39,9 +40,11 @@ const ArticlesController = {
 
   update(req, res) {
     const id = req.params.id;
-    if (ArticlesPolicy.for('update', req.user, Articles.find(id))) {
+
+    if(ArticlesPolicy.for('update', req.user, Articles.find(id))) {
       const article = Articles.update(id, req.body);
-      res.status(200).json({article})
+
+      res.status(200).json({ article })
     } else {
       res
         .status(401)
@@ -51,13 +54,15 @@ const ArticlesController = {
           }
         })
     }
+
   },
 
   destroy(req, res) {
     const id = req.params.id;
-    if (ArticlesPolicy.for('destroy', req.user, Articles.find(id))) {
+
+    if(ArticlesPolicy.for('destroy', req.user, Articles.find(id))) {
       Articles.destroy(id);
-      res.status(204);
+      res.status(204)
     } else {
       res
         .status(401)
@@ -71,3 +76,5 @@ const ArticlesController = {
 };
 
 export default ArticlesController
+
+

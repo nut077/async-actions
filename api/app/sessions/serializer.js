@@ -4,8 +4,9 @@ const SessionsSerializer = {
   ...Serializer,
 
   create(user) {
-    const {id, email, isAdmin} = user;
-    return {id, email, isAdmin};
+    const { id, email, isAdmin } = user;
+
+    return { id, email, isAdmin }
   }
 };
 
