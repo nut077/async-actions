@@ -1,4 +1,4 @@
-import controller from './controllers'
+import controller from './controller'
 
 export function setup(router) {
   router
