@@ -1,30 +1,31 @@
-import React, {PureComponent} from 'react'
-import {connect} from 'react-redux'
-import {loadArticles} from 'Actions'
-import {Article, Button, Loading} from 'Components'
+import React, { PureComponent } from 'react'
+import { connect } from 'react-redux'
+import { loadArticles } from 'Actions'
+import { Article, Button, Loading } from 'Components'
 import styles from './Articles.scss'
 
 class Articles extends PureComponent {
-  componentDidMouth() {
-    this.props.loadArticle();
+  componentDidMount() {
+    this.props.loadArticles()
   }
 
   render() {
-    const {isLoading, isLoggedIn, articles} = this.props;
+    const { isLoading, isLoggedIn, articles } = this.props;
+
     return (
       <div className={styles.container}>
-        {isLoading && <Loading/>}
+        {isLoading && <Loading />}
         {isLoggedIn && (
           <div className={styles['new-article']}>
             <Button to='/articles/new'>New Article</Button>
           </div>
         )}
-        <hr/>
+        <hr />
         {
           articles.map(
             article =>
-              <Article key={article.id}{...article}/>
-          )
+              <Article key={article.id} {...article} />
+            )
         }
       </div>
     )
@@ -32,10 +33,10 @@ class Articles extends PureComponent {
 }
 
 export default connect(
-  ({articles, auth}) => ({
+  ({ articles, auth }) => ({
     articles: articles.items,
     isLoading: articles.isLoading,
     isLoggedIn: !!auth.token
   }),
-  {loadArticles}
+  { loadArticles }
 )(Articles)
