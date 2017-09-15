@@ -14,6 +14,9 @@ function getDebugSessionKey() {
 
 export default function (initialState) {
   const middlewares = [
+    setToken,
+    apiMiddleware,
+    thunk,
     logger
   ];
 
