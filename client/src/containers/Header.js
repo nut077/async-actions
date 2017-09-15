@@ -1,10 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { logout } from 'Actions'
+import {connect} from 'react-redux'
+import {Link} from 'react-router-dom'
+import {logout} from 'Actions'
 import styles from './Header.scss'
 
-const Header = ({ isLoggedIn, logout }) => (
+const Header = ({isLoggedIn, logout}) => (
   <header className={styles.header}>
     <Link to='/articles' className={styles['nav-link']}>Articles</Link>
     {
@@ -23,8 +23,8 @@ const Header = ({ isLoggedIn, logout }) => (
 );
 
 export default connect(
-  ({ auth }) => ({
+  ({auth}) => ({
     isLoggedIn: !!auth.token
   }),
-  { logout }
+  {logout}
 )(Header)
