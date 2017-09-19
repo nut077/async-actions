@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react'
-import { connect } from 'react-redux'
-import { compose } from 'recompose'
-import { withRouter } from 'react-router'
-import { loadArticle, deleteArticle } from 'Actions'
-import { Button, Loading } from 'Components'
+import React, {PureComponent} from 'react'
+import {connect} from 'react-redux'
+import {compose} from 'recompose'
+import {withRouter} from 'react-router'
+import {loadArticle, deleteArticle} from 'Actions'
+import {Button, Loading} from 'Components'
 import styles from './ShowArticle.scss'
 import Comments from "../components/Comments";
 
@@ -13,9 +13,9 @@ class ShowArticle extends PureComponent {
   }
 
   render() {
-    const { article, deleteArticle } = this.props;
+    const {article, deleteArticle} = this.props;
 
-    if(article) {
+    if (article) {
       return (
         <div>
           <h2>{article.title}</h2>
@@ -24,12 +24,12 @@ class ShowArticle extends PureComponent {
             <Button to={`/articles/${article.id}/edit`}>Edit</Button>
             <Button onClick={deleteArticle}>Delete</Button>
           </div>
-          <hr />
-          <Comments comments={article.comments} />
+          <hr/>
+          <Comments comments={article.comments}/>
         </div>
       )
     } else {
-      return <Loading />
+      return <Loading/>
     }
   }
 }
@@ -37,10 +37,10 @@ class ShowArticle extends PureComponent {
 export default compose(
   withRouter,
   connect(
-    ({ articles: { items } }, { match }) => ({
+    ({articles: {items}}, {match}) => ({
       article: items.find(article => article.id === +match.params.id)
     }),
-    (dispatch, { match: { params }, history }) => ({
+    (dispatch, {match: {params}, history}) => ({
       loadArticle() {
         dispatch(loadArticle(params.id))
       },

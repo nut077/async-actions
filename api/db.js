@@ -17,16 +17,16 @@ export default {
     {
       id: 1,
       name: 'BabelCoder',
-      email: 'babelcoder@gmail.com',
+      email: 'nut@gmail.com',
       isAdmin: true,
-      password: '$2a$12$.rjS5eXZpVo3aC2TuRsV0.8qzBOVPM01zguiMTKwb1BYxIVR7PtQS'
+      password: '$2a$12$pSH/XM9eDztcwlFDltItb.MSv/kVihJgNcRc0h.dfUlj6MZqJBg6m'
     },
     {
       id: 2,
       name: 'Somchai',
       email: 'somchai@haha.com',
       isAdmin: false,
-      password: '$2a$12$.rjS5eXZpVo3aC2TuRsV0.8qzBOVPM01zguiMTKwb1BYxIVR7PtQS'
+      password: '$2a$12$pSH/XM9eDztcwlFDltItb.MSv/kVihJgNcRc0h.dfUlj6MZqJBg6m'
     }
   ],
   comments: [
