@@ -15,7 +15,7 @@ export default store => next => action => {
   }
 
   entry.headers = {
-    ...entry.headers, 'Authorization': getToken()
+    ...entry.headers, 'Authorization': token
   };
 
   next(action);
